@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 
-class Scrollbox extends Component {
-  scrollToTop = () => (this.box.scrollTop = 0);
+class ScrollBox extends Component {
   scrollToBottom = () => {
     const { scrollHeight, clientHeight } = this.box;
     this.box.scrollTop = scrollHeight - clientHeight;
   }
+  scrollToTop = () => {
+    this.box.scrollTop = 0
+  };
 
   render() {
     const style = {
       border: "1px solid black",
       height: "300px",
       width: "300px",
-      overflow: "hidden",
+      overflow: "auto",
       position: "relative"
     };
 
@@ -25,7 +27,7 @@ class Scrollbox extends Component {
     return (
       <div
         style={style}
-        ref={(ref) => {this.box=ref}}
+        ref={(ref) => (this.box=ref)}
       >
         <div style={innerStyle}></div>
       </div>
@@ -33,4 +35,4 @@ class Scrollbox extends Component {
   }
 }
 
-export default Scrollbox;
+export default ScrollBox;
